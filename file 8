@@ -1,0 +1,34 @@
+package mobile.automation.base;
+
+import java.util.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+
+public class Throws extends HashMapArray{
+
+	@Test
+	public void Script()
+	{
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\LENOVO\\Downloads\\chromedriver-win64\\chromedriver.exe");
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*"); // allow CDP connections
+		WebDriver driver = new ChromeDriver(options);
+		driver.get("https://www.nseindia.com/option-chain?type=currency");
+		driver.manage().window().maximize();
+		System.out.print(driver.getTitle());
+		
+		
+		
+		
+		
+		
+	}
+}
+
+
