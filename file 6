@@ -1,0 +1,43 @@
+package mobile.automation.base;
+
+import java.util.HashMap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+
+public class HashMapDemo {
+	
+	public WebDriver driver; 
+	
+	@Parameters("browser")
+	@Test
+	public void Script(String browser)
+	{
+		if(browser.equalsIgnoreCase("chrome"))
+		{
+		
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\LENOVO\\Downloads\\chromedriver-win64\\chromedriver.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--remote-allow-origins=*"); // allow CDP connections
+			driver = new ChromeDriver(options);
+		}
+		else if(browser.equalsIgnoreCase("Firefox"))
+		{
+			System.setProperty("webdriver.gecko.driver", 
+	                "C:\\Users\\LENOVO\\Downloads\\geckodriver-win64\\geckodriver.exe");
+		}
+//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\LENOVO\\Downloads\\chromedriver-win64\\chromedriver.exe");
+//
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--remote-allow-origins=*"); // allow CDP connections
+//		WebDriver driver = new ChromeDriver(options);
+		driver.get("https://example.com");
+		driver.manage().window().maximize();		
+	}
+
+}
